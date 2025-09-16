@@ -43,6 +43,7 @@ import {
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_GOERLI,
+  USDT_HUMANITY,
   USDT_MAINNET,
   USDT_OPTIMISM,
   WRAPPED_NATIVE_CURRENCY,
@@ -174,6 +175,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_MODE
     case ChainId.ANIME:
       return USDC_ANIME
+    case ChainId.HUMANITY:
+      return USDT_HUMANITY
     default:
       throw new Error(`Chain id: ${chainId} not supported`)
   }

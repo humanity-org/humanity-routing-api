@@ -438,6 +438,7 @@ export const NEW_QUOTER_DEPLOY_BLOCK: { [chainId in ChainId]: number } = {
   [ChainId.ABSTRACT_MAINNET]: -1,
   [ChainId.ANIME]: -1,
   [ChainId.ANIME_TESTNET]: -1,
+  [ChainId.HUMANITY]: -1,
   [ChainId.MODE]: -1,
 }
 
@@ -478,6 +479,7 @@ export const LIKELY_OUT_OF_GAS_THRESHOLD: { [chainId in ChainId]: number } = {
   [ChainId.ABSTRACT_MAINNET]: 0,
   [ChainId.ANIME]: 0,
   [ChainId.ANIME_TESTNET]: 0,
+  [ChainId.HUMANITY]: 0,
   [ChainId.MODE]: 0,
 }
 
