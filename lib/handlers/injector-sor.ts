@@ -99,19 +99,20 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   // ChainId.BLAST,
   // ChainId.ZORA,
   // ChainId.ZKSYNC,
-  ChainId.BASE,
-  ChainId.ABSTRACT_TESTNET,
-  ChainId.ZERO,
-  ChainId.BOB,
-  ChainId.CYBER,
-  ChainId.SHAPE,
-  ChainId.INK,
-  ChainId.REDSTONE,
-  ChainId.REDSTONE_GARNET,
-  ChainId.ABSTRACT_MAINNET,
-  ChainId.ANIME,
-  ChainId.ANIME_TESTNET,
-  ChainId.MODE,
+  // ChainId.BASE,
+  // ChainId.ABSTRACT_TESTNET,
+  // ChainId.ZERO,
+  // ChainId.BOB,
+  // ChainId.CYBER,
+  // ChainId.SHAPE,
+  // ChainId.INK,
+  // ChainId.REDSTONE,
+  // ChainId.REDSTONE_GARNET,
+  // ChainId.ABSTRACT_MAINNET,
+  // ChainId.ANIME,
+  // ChainId.ANIME_TESTNET,
+  ChainId.HUMANITY,
+  // ChainId.MODE,
 ]
 const DEFAULT_TOKEN_LIST = 'https://api-abstract.reservoir.tools/tokenlist/v1'
 
@@ -370,6 +371,7 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
             case ChainId.ABSTRACT_MAINNET:
             case ChainId.ANIME:
             case ChainId.ANIME_TESTNET:
+            case ChainId.HUMANITY:
             case ChainId.MODE:
               const currentQuoteProvider = new OnChainQuoteProvider(
                 chainId,
@@ -495,6 +497,7 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
             ChainId.ABSTRACT_MAINNET,
             ChainId.ANIME,
             ChainId.ANIME_TESTNET,
+            ChainId.HUMANITY,
             ChainId.MODE,
           ]
 
