@@ -4,7 +4,7 @@ import axios from 'axios'
 import { default as bunyan, default as Logger } from 'bunyan'
 
 const TOKEN_LISTS = [
-  'https://api-abstract.reservoir.tools/tokenlist/v1',
+  'https://raw.githubusercontent.com/humanity-org/humanity-token-list/main/tokenList.json',
 ]
 
 const handler: ScheduledHandler = async (event: EventBridgeEvent<string, void>) => {

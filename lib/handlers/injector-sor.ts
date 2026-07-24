@@ -114,7 +114,10 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.HUMANITY,
   // ChainId.MODE,
 ]
-const DEFAULT_TOKEN_LIST = 'https://api-abstract.reservoir.tools/tokenlist/v1'
+// Humanity token list (chain 6985385). The upstream fork default pointed at
+// Abstract's reservoir endpoint, which doesn't resolve and made the quote
+// Lambda's container build fatal (502 on every /quote).
+const DEFAULT_TOKEN_LIST = 'https://raw.githubusercontent.com/humanity-org/humanity-token-list/main/tokenList.json'
 
 export interface RequestInjected<Router> extends BaseRInj {
   chainId: ChainId
