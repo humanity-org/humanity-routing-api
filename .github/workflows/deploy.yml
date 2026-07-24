@@ -1,0 +1,50 @@
+# Deploy the Humanity routing API (swap quotes) to Humanity's AWS via AWS CDK.
+# Assumes the cicd-staging-app-cdk-deploy OIDC role (devops/terraform/cicd),
+# which trusts this repo on the staging branch only.
+name: cdk-deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "Run cdk bootstrap (idempotent; required once per account/region)"
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install deps (patch-package applies HUMANITY sdk-core / smart-order-router patches)
+        run: npm install --no-audit --no-fund
+
+      - name: Build (contract types + tsc for Lambda assets)
+        run: npm run build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::436020120719:role/cicd-staging-app-cdk-deploy
+          aws-region: us-east-1
+
+      - name: CDK bootstrap
+        if: ${{ inputs.bootstrap }}
+        run: npx cdk bootstrap aws://436020120719/us-east-1
+        env:
+          WEB3_RPC_6985385: ${{ secrets.WEB3_RPC_6985385 }}
+          WEB3_RPC_GATEWAY_6985385: ${{ secrets.WEB3_RPC_GATEWAY_6985385 }}
+
+      - name: CDK deploy RoutingAPIStack
+        run: npx cdk deploy RoutingAPIStack --require-approval never
+        env:
+          WEB3_RPC_6985385: ${{ secrets.WEB3_RPC_6985385 }}
+          WEB3_RPC_GATEWAY_6985385: ${{ secrets.WEB3_RPC_GATEWAY_6985385 }}
