@@ -166,7 +166,7 @@ export function generateProviderUrl(key: string, value: string): string {
     case 'WEB3_RPC_GATEWAY_6900': {
       return tokens[0]
     }
-    case 'WEB3_RPC_GATEWAY_6985385': {
+    case 'WEB3_RPC_GATEWAY_13600000': {
       return tokens[0]
     }
     case 'WEB3_RPC_GATEWAY_34443': {
