@@ -40,11 +40,11 @@ jobs:
         if: ${{ inputs.bootstrap }}
         run: npx cdk bootstrap aws://436020120719/us-east-1
         env:
-          WEB3_RPC_6985385: ${{ secrets.WEB3_RPC_6985385 }}
-          WEB3_RPC_GATEWAY_6985385: ${{ secrets.WEB3_RPC_GATEWAY_6985385 }}
+          WEB3_RPC_13600000: ${{ secrets.WEB3_RPC_13600000 }}
+          WEB3_RPC_GATEWAY_13600000: ${{ secrets.WEB3_RPC_GATEWAY_13600000 }}
 
       - name: CDK deploy RoutingAPIStack
         run: npx cdk deploy RoutingAPIStack --require-approval never
         env:
-          WEB3_RPC_6985385: ${{ secrets.WEB3_RPC_6985385 }}
-          WEB3_RPC_GATEWAY_6985385: ${{ secrets.WEB3_RPC_GATEWAY_6985385 }}
+          WEB3_RPC_13600000: ${{ secrets.WEB3_RPC_13600000 }}
+          WEB3_RPC_GATEWAY_13600000: ${{ secrets.WEB3_RPC_GATEWAY_13600000 }}
