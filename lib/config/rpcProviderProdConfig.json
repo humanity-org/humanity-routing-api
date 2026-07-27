@@ -185,12 +185,12 @@
     "providerUrls": ["WEB3_RPC_GATEWAY_69000"]
   },
   {
-    "chainId": 6985385,
+    "chainId": 13600000,
     "useMultiProviderProb": 1,
     "latencyEvaluationSampleProb": 0.01,
     "healthCheckSampleProb": 0.01,
     "providerInitialWeights": [1],
-    "providerUrls": ["WEB3_RPC_GATEWAY_6985385"]
+    "providerUrls": ["WEB3_RPC_GATEWAY_13600000"]
   },
   {
     "chainId": 34443,
